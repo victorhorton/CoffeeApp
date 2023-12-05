@@ -16,6 +16,7 @@
             <th>Id</th>
             <th>Coffee Origin</th>
             <th>Brewing Method</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -25,6 +26,9 @@
                 <td>@brew.Id</td>
                 <td>@brew.CoffeeOrigin</td>
                 <td>@brew.BrewType</td> <!-- Assuming BrewType is an enum -->
+                <td>
+                    <a class="btn btn-link" asp-area="" asp-controller="Brews" asp-action="Edit" asp-route-id="@brew.Id">Edit</a>
+                </td>
             </tr>
         }
     </tbody>

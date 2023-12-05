@@ -51,6 +51,40 @@ namespace CoffeeApp.Controllers
 
             return View(brew); // If ModelState is not valid, return to the create view with validation errors
         }
+
+        public IActionResult Edit(int id)
+        {
+            // Retrieve the Brew from the database based on the id
+            var brew = _context.Brews.Find(id);
+
+            if (brew == null)
+            {
+                return NotFound(); // Optionally handle the case where the item is not found
+            }
+
+            return View(brew);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(int id, Brew brew)
+        {
+            if (id != brew.Id)
+            {
+                return NotFound(); // Optionally handle the case where IDs don't match
+            }
+
+            if (ModelState.IsValid)
+            {
+                // Update the Brew in the database
+                _context.Entry(brew).State = EntityState.Modified;
+                _context.SaveChanges();
+
+                return RedirectToAction("Index"); // Redirect to the index action after successful edit
+            }
+
+            return View(brew); // If ModelState is not valid, return to the edit view with validation errors
+        }
     }
 }
 
