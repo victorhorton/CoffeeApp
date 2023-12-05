@@ -14,8 +14,8 @@ namespace CoffeeApp.Models
     public class Brew
     {
         public int Id { get; set; }
-        public string CoffeeOrigin { get; set; }
-        public BrewType BrewType { get; set; }
+        public string? CoffeeOrigin { get; set; }
+        public BrewType? BrewType { get; set; }
 
         public Brew()
         {

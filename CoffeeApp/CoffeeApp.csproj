@@ -10,7 +10,7 @@
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'https' " />
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' " />
   <ItemGroup>
-    <None Remove="Views\Brew\" />
+    <None Remove="Views\Brews\" />
   </ItemGroup>
   <ItemGroup>
     <None Update="app.db" CopyToOutputDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
@@ -25,6 +25,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\Brew\" />
+    <Folder Include="Views\Brews\" />
   </ItemGroup>
 </Project>
