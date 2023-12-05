@@ -1,0 +1,23 @@
+﻿@model List<CoffeeApp.Models.Brew>
+
+<h2>Brews Index</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Coffee Origin</th>
+            <th>Brewing Method</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var brew in Model)
+        {
+            <tr>
+                <td>@brew.Id</td>
+                <td>@brew.CoffeeOrigin</td>
+                <td>@brew.BrewType</td> <!-- Assuming BrewType is an enum -->
+            </tr>
+        }
+    </tbody>
+</table>
