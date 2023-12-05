@@ -28,6 +28,29 @@ namespace CoffeeApp.Controllers
             var brews = _context.Brews.ToList();
             return View(brews);
         }
+
+        // GET: Brews/Create
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: Brews/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Brew brew)
+        {
+            if (ModelState.IsValid)
+            {
+                // Add the new brew to the database
+                _context.Brews.Add(brew);
+                _context.SaveChanges();
+
+                return RedirectToAction("Index"); // Redirect to the index action after successful creation
+            }
+
+            return View(brew); // If ModelState is not valid, return to the create view with validation errors
+        }
     }
 }
 

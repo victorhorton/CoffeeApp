@@ -1,0 +1,23 @@
+﻿@model CoffeeApp.Models.Brew
+
+<h2>Create Brew</h2>
+
+<form asp-action="Create" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="form-group">
+        <label asp-for="CoffeeOrigin"></label>
+        <input asp-for="CoffeeOrigin" class="form-control" />
+        <span asp-validation-for="CoffeeOrigin" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="BrewType"></label>
+        <select asp-for="BrewType" asp-items="Html.GetEnumSelectList<CoffeeApp.Models.BrewType>()" class="form-control"></select>
+        <span asp-validation-for="BrewType" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Create</button>
+    </div>
+</form>
